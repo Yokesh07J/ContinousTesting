@@ -1,11 +1,17 @@
 pipeline {
+
     agent any
+
+    tools {
+        maven 'Maven-3.9.6'
+    }
 
     stages {
 
         stage('Checkout') {
             steps {
-                echo 'Checking out source code'
+                git branch: 'main',
+                    url: 'https://github.com/Yokesh07J/ContinousTesting.git'
             }
         }
 
@@ -29,16 +35,17 @@ pipeline {
     }
 
     post {
+
         success {
             echo 'All automated tests passed successfully!'
         }
 
         failure {
-            echo 'Automated testing failed. Check the Jenkins test report.'
+            echo 'Automated testing failed. Check the test report.'
         }
 
         always {
-            echo 'Continuous Testing execution completed.'
+            echo 'Continuous Testing completed.'
         }
     }
 }
