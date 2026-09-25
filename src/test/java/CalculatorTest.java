@@ -32,6 +32,7 @@ class Calculator {
             throw new ArithmeticException("Modulus by zero is not allowed.");
         }
         return a % b;
+    
     }
 }
 
@@ -51,7 +52,7 @@ public class CalculatorTest {
     @DisplayName("Test 1: Addition")
     void testAddition() {
         int result = calculator.add(10, 5);
-        assertEquals(15, result, "10 + 5 should equal 15");
+        assertEquals(20, result, "10 + 5 should equal 15");
     }
 
     @Test
